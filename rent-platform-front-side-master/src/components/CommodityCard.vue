@@ -27,7 +27,7 @@
 import axios from '../axios'
 export default {
   props:{
-    cardInfo:Object,
+    cardInfo:new Object,
     required:true,
   },
   data () {

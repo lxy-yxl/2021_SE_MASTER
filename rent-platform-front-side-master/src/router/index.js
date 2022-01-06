@@ -39,6 +39,41 @@ const routes = [
         },
       },
       {
+        path: 'posts',
+        name: 'Posts',
+        component: ()=>import('../views/Posts.vue'),
+        redirect: '/homepage/posts/forum',
+        meta:{
+          requiresAuth:true,
+        },
+        children:[
+          {
+            path: 'forum',
+            name: 'Forum',
+            component: ()=>import('../views/Posts/Forum.vue'),//lazy-load
+            meta:{
+              requiresAuth:true,
+            },
+          },
+          {
+            path: 'mypost',
+            name: 'MyPost',
+            component: ()=>import('../views/Posts/MyPost.vue'),//lazy-load
+            meta:{
+              requiresAuth:true,
+            },
+          },
+          {
+            path: 'publish',
+            name: 'Publish',
+            component: ()=>import('../views/Posts/Publish.vue'),//lazy-load
+            meta:{
+              requiresAuth:true,
+            },
+          },
+        ]
+      },
+      {
         path: 'user',
         name: 'User',
         component: ()=>import('../views/UserCenter.vue'),//lazy-load，
@@ -59,6 +94,14 @@ const routes = [
             path: 'myorder',
             name: 'MyOrder',
             component: ()=>import('../views/UserCenter/MyOrder.vue'),//lazy-load
+            meta:{
+              requiresAuth:true,
+            },
+          },
+          {
+            path: 'myobject',
+            name: 'MyObject',
+            component: ()=>import('../views/UserCenter/MyObject.vue'),//lazy-load
             meta:{
               requiresAuth:true,
             },

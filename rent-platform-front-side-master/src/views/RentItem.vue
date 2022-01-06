@@ -4,7 +4,7 @@
       src="../assets/img/bg-banner-custome.jpg"
       style="z-index: -100; position: fixed; top: 8%; bottom: 0; height: 92%"
     />
-    <div style="position: absolute; top: 28%; left: 46%; z-index: 99">
+    <div style="position: absolute; top: 28%; left: 53%; z-index: 99">
       <div>添加物品图片</div>
       <el-upload
       class="avatar-uploade"
@@ -29,7 +29,7 @@
     </div>
     <el-card
       style="
-        width: 55%;
+        width: 60%;
         height: 70%;
         position: absolute;
         top: 20%;
@@ -43,7 +43,7 @@
         :rules="rules"
         ref="itemForm"
         label-width="150px"
-        style="width: 60%"
+        style="width: 70%"
       >
         <el-form-item label="物品名称" prop="name">
           <el-input v-model="itemForm.name"></el-input>
@@ -61,6 +61,7 @@
             controls-position="right"
             :min="0"
             :step="1"
+            :precision='0'
             style="width: 100%"
           >
           </el-input-number>
@@ -72,6 +73,7 @@
             controls-position="right"
             :min="0"
             :step="1"
+            :precision='0'
             style="width: 100%"
           >
           </el-input-number>
@@ -113,12 +115,12 @@ export default {
         tag: "",
         description: "",
         new_level: "",
-        url:'',
+        url:null,
       },
       fileList: [],
       rules: {
         name: [
-          { required: true, message: "Please input name", trigger: "blur" },
+          { required: true, message: "请输入物品名称", trigger: "blur" },
           {
             min: 1,
             max: 20,
@@ -168,13 +170,22 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("submit!");
+          this.$message({
+          type:"success",
+          message: '上传成功！',
+          offset:100,
+          duration: 3000
+        });
           console.log(this.itemForm);
-          // this.$refs.upload.submit();
+          //this.$refs.upload.submit();
           axios
             .uploadObject(this.itemForm)
             .then((res) => {
-              console.log("上传成功");
+              console.log("上传成功",res.data.data);
+              var item_id=res.data.data
+            this.$router.push({
+             path:'/homepage/ItemDetail/'+item_id,
+            })
             })
             .catch((err) => {
               console.log(err);
@@ -187,7 +198,7 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
-        this.$refs.avatar.clearFiles();
+       // this.$refs.avatar.clearFiles();
     },
     // el-upload相关方法
  
@@ -205,7 +216,8 @@ uploadSuccess(res) { // 图片上传成功后即调用的函数
         this.$message({
           message: '上传成功',
           type: 'success',
-          duration: 1000
+          duration: 1000,
+          offset:100
         })
         // 上传成功后为当前页面中的img赋值src，即照片回显（回显的地址是后台传递给前端的）
         // this.imgShow = true
@@ -214,7 +226,8 @@ uploadSuccess(res) { // 图片上传成功后即调用的函数
         this.$message({
           message: res.msg,
           type: 'error',
-          duration: 1000
+          duration: 1000,
+          offset:100
         })
         // this.$message.error(res.msg)
       }
@@ -227,7 +240,8 @@ uploadSuccess(res) { // 图片上传成功后即调用的函数
       this.$message({
         message: `当前限制选择1个文件，本次选择了 ${files.length}个文件，共选择了${files.length + fileList.length}个文件`,
         type: 'warning',
-        duration: 1000
+        duration: 1000,
+        offset:100
       })
     },
     

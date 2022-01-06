@@ -2,15 +2,15 @@
   <div class="item-detail">
     <div class="check-out-container" v-show="checkOut">
       <div class="check-out-box">
-        <div class="check-out-head">Check Out</div>
+        <div class="check-out-head">确认订单</div>
         <div class="check-out-main">
-          <div class="pay-row">Order Number: {{this.orderId}}</div>
+          <div class="pay-row">订单ID: {{this.orderId}}</div>
           <div class="pay-code"></div>
 
           <div class="buttons">
-            <div class="check-out-button" style="background-color: red;margin-right:10px" @click="cancle">Cancle</div>
-            <div class="check-out-button" style="background-color: rgb(42, 88, 240);margin-right:10px" @click="skip">Skip</div>
-            <div class="check-out-button" style="background-color: rgb(42, 88, 240);" @click="pay">pay</div>
+            <div class="check-out-button" style="background-color: red;margin-right:10px" @click="cancle">取消</div>
+            <div class="check-out-button" style="background-color: rgb(42, 88, 240);margin-right:10px" @click="skip">跳过</div>
+            <div class="check-out-button" style="background-color: rgb(42, 88, 240);" @click="pay">支付</div>
           </div>
         </div>
       </div>
@@ -64,30 +64,6 @@
                       alt="img-gallery"
                       data-uk-cover><!--</a>-->
                   </li>
-                  <!-- <li class="uk-border-rounded"><a href="../assets/img/img-article-intro-2.jpg"><img
-                      class="uk-width-1-1"
-                      src="../assets/img/img-article-intro-2.jpg"
-                      alt="img-gallery"
-                      data-uk-cover></a>
-                  </li>
-                  <li class="uk-border-rounded"><a href="../assets/img/img-article-intro-3.jpg"><img
-                      class="uk-width-1-1"
-                      src="../assets/img/img-article-intro-3.jpg"
-                      alt="img-gallery"
-                      data-uk-cover></a>
-                  </li>
-                  <li class="uk-border-rounded"><a href="../assets/img/img-article-intro-4.jpg"><img
-                      class="uk-width-1-1"
-                      src="../assets/img/img-article-intro-4.jpg"
-                      alt="img-gallery"
-                      data-uk-cover></a>
-                  </li>
-                  <li class="uk-border-rounded"><a href="../assets/img/img-article-intro-2.jpg"><img
-                      class="uk-width-1-1"
-                      src="../assets/img/img-article-intro-2.jpg"
-                      alt="img-gallery"
-                      data-uk-cover></a>
-                  </li> -->
                 </ul>
                 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous
                    data-uk-slideshow-item="previous"></a><a
@@ -120,19 +96,6 @@
             <!-- ------------------------------------------------------------------------------ -->
             <h3><span class="icon-folder"></span>基础信息</h3>
             <p>{{this.detail.description}}</p>
-            <!-- <p>Voluptate velit esse cillum doloreu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p><b>Package Includes:</b></p>
-            <ul class="uk-list uk-list-disc uk-list-primary">
-              <li>Canon EOS 5D Mark IV DSLR Camera</li>
-              <li>Canon 85mm IS F 1.4</li>
-              <li>3x Original Canon battery</li>
-              <li>256 GB 95 mb/sec</li>
-              <li>128 GB 160 mb/sec</li>
-              <li>Lens Hood</li>
-              <li>Memory card adaptor</li>
-            </ul> -->
-            <!-- ------------------------------------------------------------------------------ -->
             <hr class="uk-margin-medium">
             <h3><span class="icon-user icon-accent"></span>物品主人</h3>
             <div class="uk-comment">
@@ -231,32 +194,16 @@
                           <div>
                             <div class="uk-h5" style="width:300px;margin-bottom:20px;">你所在的校区是?</div>
                           </div>
-                          <!-- <div style="padding-left: 5px"><img src="../assets/img/ico-rating.svg" alt="ico-rating"></div> -->
                         </div>
-                        <!-- <div class="uk-grid uk-margin-remove uk-flex-middle" data-uk-grid> -->
-                          <!-- <div class="uk-padding-remove">
-                            <ul class="stars-list">
-                              <li><i class="far fa-star"></i></li>
-                              <li><i class="far fa-star"></i></li>
-                              <li><i class="far fa-star"></i></li>
-                              <li><i class="far fa-star"></i></li>
-                              <li><i class="far fa-star"></i></li>
-                            </ul>
-                          </div> -->
-
-                        <!-- </div> -->
                       </div>
 
                     </div>
                   </div>
                   <div class="uk-width-expand">
                     <div class="uk-grid" data-uk-grid>
-                      <!-- <div><a class="uk-icon-button" href="#"><span uk-icon="mail"></span></a></div> -->
-                      <!-- <div><a class="uk-icon-button" href="#"><span uk-icon="heart"></span></a></div> -->
                     </div>
                   </div>
                 </div>
-                <!-- <el-input v-model="zone" style="width:100%;"/> -->
                 <el-select  v-model="zone" placeholder="请选择一个校区"  style="width: 100%;">
                 <el-option label="嘉定校区" value="嘉定"></el-option>
                 <el-option label="四平校区" value="四平"></el-option>
@@ -307,7 +254,6 @@
 import axios from '../axios'
 export default {
   mounted () {
-    //console.log(this.$route.params.id);
     let uid=this.$store.state.user.userId;
     let id=this.$route.params.id;
 
@@ -318,17 +264,7 @@ export default {
     .then(()=>{
       this.getComments();
     })
-
-
-
-
     //获取订单的信息
-
-
-
-
-
-
   },
   data () {
     return {

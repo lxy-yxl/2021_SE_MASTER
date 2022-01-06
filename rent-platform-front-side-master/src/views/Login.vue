@@ -6,6 +6,11 @@
           <div class="icon" @click="goBack()"></div>
         </div>
         <div class="main">
+<!--          <div class="main-title nav-bar">-->
+<!--            <div class="nav-item" @click="userLogin()">用户登录</div>-->
+<!--            <div class="split">|</div>-->
+<!--            <div class="nav-item"  @click="adminLogin()">管理员登录</div>-->
+<!--          </div>-->
             <div class="main-title">登录</div>
             <div class="main-form">
               <input :class="{'login-input':true, 'login-input-err':this.userNameErr}" placeholder="用户名" @focus="resetErr" v-model="userName">
@@ -50,6 +55,7 @@ export default {
       pswInfo:'',//密码错误提示
       userName:'',
       password:'',
+      role:'',
     }
   },
   computed: {
@@ -95,16 +101,19 @@ export default {
           let data=token;
           axios.getUserByToken(data)
           .then(res=>{
-            //console.log(res.data);
+            console.log(res.data.role);
             let user=res.data;
             this.$store.commit('LOGIN',token);//mutation LOGIN
             this.$store.commit('USER',user);
             this.$store.commit('LOGIN');//mutation LOGIN
-            let redirect = decodeURIComponent(this.$route.query.redirect || '/'); 
-            this.$router.push(redirect);
+            if(res.data.role=="1"){this.$router.push('/admin');}
+            else {
+              let redirect = decodeURIComponent(this.$route.query.redirect || '/');
+              this.$router.push(redirect);
+            }
           })
         }
-        
+
       })
       .catch(err=>{
         this.pswInfo='用户名或密码错误';
@@ -180,6 +189,27 @@ export default {
         padding-right: 12%;
         margin-bottom: 50px;
         transition: all .3s ease;
+        .nav-bar{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          .split{
+            margin-left:15px;
+            margin-right: 18px;
+            color:gray;
+          }
+          .nav-item{
+            user-select: none;
+            font-size: 15.6px;
+            color:#222222;
+            transition: all .3s ease;
+            text-decoration: none;
+            &:hover{
+              color:#E63A28;
+            }
+          }
+        }
         .main-title{
           font-size: 34px;
           color:rgb(49, 49, 49);

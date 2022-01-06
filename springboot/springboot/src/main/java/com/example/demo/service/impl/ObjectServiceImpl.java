@@ -48,6 +48,7 @@ public class ObjectServiceImpl extends ServiceImpl<ObjectMapper, Object> impleme
         return detail;
     }
 
+
     public Page<JSONObject> getObjectListByType(String type, Page<JSONObject> ipage){
         return objectMapper.getObjectListByType(type,ipage);
 
@@ -71,7 +72,7 @@ public class ObjectServiceImpl extends ServiceImpl<ObjectMapper, Object> impleme
         object.setTag(tag);
         object.setRentDaliy(rent_daily);
         object.setNewLevel(new_level);
-        object.setStatus("审核通过");//管理员部分待做
+        object.setStatus("待审核");//管理员部分待做
         int count = objectMapper.insert(object);
         if(count<=0)
             return -1;
@@ -131,11 +132,13 @@ public class ObjectServiceImpl extends ServiceImpl<ObjectMapper, Object> impleme
         return jsonObjects;
     }
 
-    public Page<Object> viewPendingObject(IPage<Object> iPage){
-        QueryWrapper<Object> wrapper=new QueryWrapper<>();
-        wrapper.eq("status", "待审核");
-        return (Page<Object>) objectMapper.selectPage(iPage, wrapper);
+//    public Page<Object> viewPendingObject(IPage<Object> iPage){
+//        QueryWrapper<Object> wrapper=new QueryWrapper<>();
+//        wrapper.eq("status", "待审核");
+//        return (Page<Object>) objectMapper.selectPage(iPage, wrapper);
+//    }
+public Page<JSONObject> viewPendingObject(Page<JSONObject> ipage){
+    return objectMapper.viewPendingObject(ipage);
 
-    }
-
+}
 }

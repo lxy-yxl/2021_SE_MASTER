@@ -51,6 +51,20 @@
         where object.tag=#{type} and object.status='审核通过'
     </select>
 
+
+    <select id="viewPendingObject" resultType="cn.hutool.json.JSONObject">
+        select object.object_id,name,rent_daliy,tag,deposit,description,new_level,nick_name,avatar,reputation,url.picture_url
+        from object
+                 join user on object.user_id=user.user_id
+                 left outer join (select picture_url,object.object_id  from picture join object where picture.object_id=object.object_id)  url on  url.object_id=object.object_id
+                 left outer join (select count(*) count,object.object_id,avg(remarks.grade) star
+                                  from object
+                                      join remarks on object.object_id=remarks.object_id
+                                  GROUP BY object.object_id
+        ) commentNum on commentNum.object_id=object.object_id
+        where  object.status='待审核'
+    </select>
+
     <select id="recommend" resultType="cn.hutool.json.JSONObject">
         select object.object_id,name,rent_daliy,description,new_level,nick_name,avatar,reputation,url.picture_url,commentNum.count,commentNum.star
         from object

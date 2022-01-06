@@ -352,7 +352,7 @@ export default {
         this.orderId=res.data.data;
         this.checkOut=true;
       })
-      
+
     },
     goComment(){
       this.$refs.comment.scrollIntoView();
@@ -391,13 +391,15 @@ export default {
             console.log(res);
             alert('submit');
           })
-          
+
         }
       }
     }
   }
 }
 </script>
+
+
 <style lang="scss" scoped>
 .item-detail {
   width: 100%;
@@ -526,7 +528,7 @@ export default {
                 .price-item {
                   width: 100px;
                   text-align: center;
-                  
+
 
                   .price-item-value {
                     font-size: 30px;

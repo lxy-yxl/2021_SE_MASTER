@@ -5,18 +5,18 @@ import router from './router'
 
 //创建axios实例
 var instance = axios.create({
- timeout: 5000, //请求超过5秒即超时返回错误
- headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+    timeout: 5000, //请求超过5秒即超时返回错误
+    headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'},
 });
 //request拦截器
 instance.interceptors.request.use(
- config => {
-  //判断是否存在token，如果存在的话，则每个http header都加上token
-  if (store.state.token) {
-   config.headers.Authorization = `Bearer ${store.state.token}`;
-  }
-  return config;
- }
+    config => {
+        //判断是否存在token，如果存在的话，则每个http header都加上token
+        if (store.state.token) {
+            config.headers.Authorization = `Bearer ${store.state.token}`;
+        }
+        return config;
+    }
 );
 var url = 'http://101.35.194.132:9090/';  //服务器连接
 export default {
@@ -114,5 +114,14 @@ export default {
   updateUser(data){
     return instance.post(url+'user/modifyUserInfo?'+'user_id='+data.userId+'&nick_name='+data.nick_name+'&password='+data.password+'&avatar='+data.avatar+'&gender='+data.gender+'&telephone='+data.telephone+'&email='+data.email+'&zone='+data.zone);
   },
+  getPendingObj() {
+      return instance.get(url + 'object/viewPendingObject?page=1');
+  },
+  checkPass(id){
+      return instance.get(url + 'object/verifyObject?object_id='+id +'&check=true');
+  },
+  removeObj(id){
+      return instance.get(url + 'object/removeObject?object_id='+id );
+  }
 
 }

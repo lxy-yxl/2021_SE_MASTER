@@ -34,7 +34,7 @@ export default {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        margin: 5% 5% 5% 15%;
+        margin: 5% 5% 5% 14%;
         width:1170px;
 }
 </style>

@@ -14,7 +14,7 @@
                     <div class="status-name">{{cardInfo.object.status}}</div>
                   </div>
                 <div>
-                    <el-button type="danger" icon="el-icon-delete">删除
+                    <el-button type="danger" icon="el-icon-delete" @click="delobject()">删除
                     </el-button>
                 </div>
                 </div>
@@ -34,6 +34,18 @@ export default {
     }
   },
   methods: {
+      delobject(){
+          axios.deleteObject(this.cardInfo.object.object_id)
+          .then(()=>
+          {
+            this.$message({
+          message: "删除成功",
+          type: "success",
+          offset:100
+        });
+
+          })
+      }
   }
 }
 </script>

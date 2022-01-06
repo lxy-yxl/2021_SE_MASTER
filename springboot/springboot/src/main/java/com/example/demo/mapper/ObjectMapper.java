@@ -28,6 +28,7 @@ public interface ObjectMapper extends BaseMapper<Object> {
     Integer getRentCount(int object_id);
 
     Page<JSONObject> getObjectListByType(String type, Page<JSONObject> ipage);
+    Page<JSONObject> viewPendingObject(Page<JSONObject> ipage);
 
     List<JSONObject> recommend();
 

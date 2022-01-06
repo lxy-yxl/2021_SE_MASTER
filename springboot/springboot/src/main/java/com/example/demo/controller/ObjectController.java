@@ -132,12 +132,18 @@ public class ObjectController {
     }
 
     @GetMapping("viewPendingObject")
+//    public Result<?> viewPendingObject(Integer page){
+//        Page<Object> iPage = new Page<>(page, 10);
+//        Page<Object> objectPage = objectService.viewPendingObject(iPage);
+//        if(objectPage.getTotal()==0)
+//            return Result.error("-1", "当前没有待审核物品");
+//        else return Result.success(objectPage);
+//    }
     public Result<?> viewPendingObject(Integer page){
-        Page<Object> iPage = new Page<>(page, 10);
-        Page<Object> objectPage = objectService.viewPendingObject(iPage);
-        if(objectPage.getTotal()==0)
-            return Result.error("-1", "当前没有待审核物品");
-        else return Result.success(objectPage);
+        Page<JSONObject> iPage = new Page<JSONObject>(page, 6);
+        iPage=objectService.viewPendingObject(iPage);
+        return Result.success(iPage);
+
     }
 
     @GetMapping("verifyObject")

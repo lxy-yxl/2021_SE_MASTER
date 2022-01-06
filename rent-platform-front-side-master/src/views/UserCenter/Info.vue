@@ -12,7 +12,7 @@
             <el-upload
               class="avatar-uploade"
               name="file"
-              action="http://121.37.172.109:9090/picture/upload"
+              action="http://101.35.194.132:9090/picture/upload"
               :on-success="uploadSuccess"
               multiple
               :limit="1"

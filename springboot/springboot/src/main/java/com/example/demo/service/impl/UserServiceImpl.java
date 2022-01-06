@@ -8,6 +8,7 @@ import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.swagger.models.auth.In;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,6 +30,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public Page<User> getAll(IPage<User> iPage) {
         return userMapper.getAll(iPage);
     }
+
+
 
     public int modifyUserInfo(Integer user_id, String nick_name, String password, String avatar, String gender, Integer telephone, String email, String zone){
         User user=new User();

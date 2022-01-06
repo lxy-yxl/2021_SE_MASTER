@@ -1,5 +1,5 @@
 <template>
-  <div class="commodity-card">
+  <div class="object-card">
                   <img class="picture" :src="cardInfo.url"/>
               <div class="section-featured-card-main">
                 <div class="card-title">{{cardInfo.object.name}}</div>
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
       delobject(){
-          axios.deleteObject(this.cardInfo.object.object_id)
+          axios.deleteObject(this.cardInfo.object.objectId)
           .then(()=>
           {
             this.$message({
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-        .commodity-card{
+        .object-card{
           flex-shrink: 0;
           margin-left: 30px;
           margin-bottom: 30px;

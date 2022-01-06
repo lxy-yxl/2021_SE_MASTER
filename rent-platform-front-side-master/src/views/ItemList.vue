@@ -16,16 +16,6 @@
                 </div>
               </div>
             </div>
-            <div class="section-banner-bottom">
-              <div class="popular-searches">
-                <div class="popular-searches-title">相联搜索:</div>
-                <div class="popular-searches-list">
-                  <div class="related-searches-item">佳能单反 |</div>
-                  <div class="related-searches-item">佳能单反 |</div>
-                  <div class="related-searches-item">佳能单反</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -329,36 +319,6 @@ export default {
                 }
                 .section-banner-button:hover{
                   background-color: #c43323;
-                }
-              }
-            }
-          }
-          .section-banner-bottom{
-            margin-top:35px;
-            height:50px;
-            width:100%;
-            .popular-searches{
-              height:50px;
-              width:auto;
-              display: flex;
-              flex-direction: row;
-              justify-content: center;
-              align-items: center;
-              .popular-searches-title{
-                font-size: 16px;
-                color:gray;
-              }
-              .popular-searches-list{
-                padding:0 20px;
-                height: 100%;
-                width:auto;
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                .related-searches-item{
-                  color: white;
-                  margin-right: 9px;
                 }
               }
             }

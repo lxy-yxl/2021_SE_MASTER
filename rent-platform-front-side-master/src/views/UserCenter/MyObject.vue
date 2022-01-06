@@ -1,17 +1,17 @@
 <template>
           <div class="myobject">
-            <my-object
+            <object-card
             v-for="item in this.myObject" :key="item.object.objectId"
             :cardInfo="item"
-            ></my-object>
+            ></object-card>
           </div>
 </template>
 <script>
-import myObject from '../../components/MyObject.vue'
+import objectCard from '../../components/ObjectCard.vue'
 import axios from '../../axios'
 export default {
     components:{
-    myObject
+    objectCard
   },
   data(){
       return{

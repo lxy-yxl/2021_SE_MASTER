@@ -27,7 +27,7 @@
                       class="section-banner-grid">
                     <div>
                       <div class="price-item">
-                        <div class="price-item-value">${{this.detail.rent_daliy}}/Day</div>
+                        <div class="price-item-value">${{this.detail.rent_daliy}}/天</div>
                         <!-- <div class="price-item-time">Per Day</div> -->
                       </div>
                     </div>
@@ -47,8 +47,8 @@
                 </div>
               </div>
               <div>
-                <div class="section-banner-rating"><i class="far fa-white-star"></i><span>Rating</span><b
-                    style="color: red;padding:0 10px;font-size:28px;">{{this.detail.star}}</b><span>({{this.detail.count}} Reviews)</span>
+                <div class="section-banner-rating"><i class="far fa-white-star"></i><span>评分</span><b
+                    style="color: red;padding:0 10px;font-size:28px;">{{this.detail.star}}</b><span>({{this.detail.count}}人已评价)</span>
                 </div>
                 <div class="section-banner-links">
                   <ul>
@@ -75,7 +75,7 @@
                       class="uk-width-1-1"
                       :src="this.detail.urls[0]"
                       alt="img-gallery"
-                      data-uk-cover></a>
+                      data-uk-cover><!--</a>-->
                   </li>
                   <!-- <li class="uk-border-rounded"><a href="../assets/img/img-article-intro-2.jpg"><img
                       class="uk-width-1-1"
@@ -131,7 +131,7 @@
             <!-- ------------------------------------------------------------------------------ -->
             <hr class="uk-margin-medium">
             <!-- ------------------------------------------------------------------------------ -->
-            <h3><span class="icon-folder"></span>Brief Description</h3>
+            <h3><span class="icon-folder"></span>基础信息</h3>
             <p>{{this.detail.description}}</p>
             <!-- <p>Voluptate velit esse cillum doloreu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
               proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -147,7 +147,7 @@
             </ul> -->
             <!-- ------------------------------------------------------------------------------ -->
             <hr class="uk-margin-medium">
-            <h3><span class="icon-user icon-accent"></span>Meet The Lender</h3>
+            <h3><span class="icon-user icon-accent"></span>物品主人</h3>
             <div class="uk-comment">
               <div class="uk-comment-header">
                 <div class="uk-grid uk-flex-middle">
@@ -166,7 +166,7 @@
                         <div class="uk-grid uk-margin-remove">
                           <div class="uk-padding-remove">
                             <div style="display:flex;flex-direction:row;align-items:center;margin-top:5px;">
-                              Reputation：<div style="color:red">{{this.detail.reputation}}</div>
+                             信誉度：<div style="color:red">{{this.detail.reputation}}</div>
                             </div>
                           </div>
                         </div>
@@ -179,10 +179,10 @@
             <hr class="uk-margin-medium">
             <div class="uk-flex uk-margin-medium-bottom" data-uk-grid>
               <div class="uk-width-expand">
-                <h3><span class="icon-red-star icon-accent"></span>Reviews<small>(Rating <b>{{this.detail.star}}</b> Based on {{this.detail.count}}
-                  Reviews)</small></h3>
+                <h3><span class="icon-red-star icon-accent"></span>评价<small>(评分 <b>{{this.detail.star}}</b> 已有 {{this.detail.count}}
+                  人评价)</small></h3>
               </div>
-              <div><a class="uk-button uk-button-danger"  @click="goComment()">ADD A REVIEW</a></div>
+              <div><a class="uk-button uk-button-danger"  @click="goComment()">发表评价</a></div>
             </div>
             <div class="uk-comment uk-margin-small-bottom" v-for="item in this.comments" :key="item.content">
               <div class="uk-comment-header">
@@ -212,8 +212,8 @@
               </div>
             </div>
             <hr class="uk-margin-medium">
-            <h3><span class="icon-red-star icon-accent" ref="comment"></span>Add Review & Rate</h3>
-            <div class="block-rating"><span class="block-rating__text">Your Rating</span>
+            <h3><span class="icon-red-star icon-accent" ref="comment"></span>发表评价 & 评分</h3>
+            <div class="block-rating"><span class="block-rating__text">你的评分</span>
             <el-rate
             style="margin-top:4px"
               v-model="myRate"
@@ -224,16 +224,16 @@
             <form action="#">
               <div class="uk-grid uk-child-width-1-1" data-uk-grid>
                 <div class="uk-margin-small-bottom"><textarea class="uk-textarea"
-                                                              placeholder="Write your review..." v-model="myComment"></textarea></div>
+                                                              placeholder="填写你的评价..." v-model="myComment"></textarea></div>
                 <div>
-                  <div class="uk-button uk-button-danger uk-button-large"  @click="sendComment()">Send comment</div>
+                  <div class="uk-button uk-button-danger uk-button-large"  @click="sendComment()">发表</div>
                 </div>
               </div>
             </form>
           </div>
           <div class="uk-width-1-3@m">
             <div class="rent-box">
-              <div style="font-size:20.6px">Want it? Don't hesitate</div>
+              <div style="font-size:20.6px">想要吗？别再犹豫</div>
               <hr class="uk-medium">
               <div class="rent-box-info">
                 <div class="uk-grid uk-flex-middle" data-uk-grid>
@@ -242,7 +242,7 @@
                       <div>
                         <div class="uk-grid" tyle="width:100%" data-uk-grid>
                           <div>
-                            <div class="uk-h5" style="width:300px;margin-bottom:20px;">Which campus are you in?</div>
+                            <div class="uk-h5" style="width:300px;margin-bottom:20px;">你所在的校区是?</div>
                           </div>
                           <!-- <div style="padding-left: 5px"><img src="../assets/img/ico-rating.svg" alt="ico-rating"></div> -->
                         </div>
@@ -270,13 +270,13 @@
                   </div>
                 </div>
                 <!-- <el-input v-model="zone" style="width:100%;"/> -->
-                <el-select  v-model="zone" placeholder="Please select place of delivery"  style="width: 100%;">
+                <el-select  v-model="zone" placeholder="请选择一个校区"  style="width: 100%;">
                 <el-option label="嘉定校区" value="嘉定"></el-option>
                 <el-option label="四平校区" value="四平"></el-option>
                 </el-select>
               </div>
               <div class="rent-box__form">
-                <div class="uk-h5">When do you want it?</div>
+                <div class="uk-h5">你需要它的时间?</div>
                 <form action="#">
                   <el-date-picker
                     v-model="startTime"
@@ -285,7 +285,7 @@
                     align="right"
                     type="datetime"
                     value-format="yyyy-MM-dd HH:mm:ss"
-                    placeholder="Date Start"
+                    placeholder="开始日期"
                     >
                   </el-date-picker>
                   <el-date-picker
@@ -295,14 +295,14 @@
                     align="right"
                     type="datetime"
                     value-format="yyyy-MM-dd HH:mm:ss"
-                    placeholder="Date End"
+                    placeholder="结束日期"
                    >
                   </el-date-picker>
                   <div class="uk-margin"><input class="uk-button uk-button-danger uk-width-1-1" type="button" @click="rentItem()"
-                                                value="RENT"></div>
+                                                value="开始租用"></div>
                   <div class="uk-margin-top">
                     <div class="uk-text-center">
-                      <p class="uk-text-meta">Please check if the item is available on<br> the dates you have selected
+                      <p class="uk-text-meta">请确认物品在你选择的时间上是否可用
                       </p>
                     </div>
                   </div>
@@ -454,7 +454,7 @@ export default {
         console.log('orders',this.myOrders);
         console.log('item',this.detail.object_id);
         if(this.myOrders.find(item=>{return item.object_id==this.detail.object_id})==undefined){
-          alert('Please comment it after using it.')
+          alert('请在使用后再评价！')
         }
         else{
           let data={

@@ -6,25 +6,25 @@
       <div class="section-banner-bg" ref="top">
         <div class="section-banner-container">
           <div class="section-banner-main">
-            <div class="section-banner-title wow fadeInLeft" data-wow-iteration="1">Get Anything On Rent</div>
-            <div class="section-banner-text wow fadeInLeft" >Find Thousands of Items (Almost Anything)</div>
+            <div class="section-banner-title wow fadeInLeft" data-wow-iteration="1">租你想租的</div>
+            <div class="section-banner-text wow fadeInLeft" >能找到常见的几乎所有物品</div>
             <div class="section-banner-form">
               <div class="section-banner-search">
                 <div class="section-banner-search-box">
-                  <input v-model="searchInput" class="section-banner-input" type="text" placeholder="Cars, Drones, Electronics, Clothes etc">
-                  <input class="section-banner-button" type="button" value="SEARCH" @click="search()">
+                  <input v-model="searchInput" class="section-banner-input" type="text" placeholder="汽车、无人机、电子产品、服装等等">
+                  <input class="section-banner-button" type="button" value="搜索" @click="search()">
                 </div>
               </div>
             </div>
             <div class="section-banner-bottom">
-              <div class="popular-searches">
-                <div class="popular-searches-title">Popular Searchs:</div>
+              <!-- <div class="popular-searches">
+                <div class="popular-searches-title">热门搜索:</div>
                 <div class="popular-searches-list">
                   <div class="popular-searches-item"></div>
                   <div class="popular-searches-item"></div>
                   <div class="popular-searches-item"></div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -34,8 +34,8 @@
     <div class="section-category">
       <div class="section-category-container">
         <div class="section-category-title">
-          <div class="section-title wow fadeInLeft">Rent Things The Easier Way</div>
-          <div class="section-title-main wow fadeInLeft">Popular Categories</div>
+          <div class="section-title wow fadeInLeft">轻松出租</div>
+          <div class="section-title-main wow fadeInLeft">热门选择</div>
           <div class="section-title-p wow fadeInLeft">Eiusmod temporl incididunt utys labore dolore magna aliqua sed enimaud lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
         </div>
 
@@ -45,23 +45,23 @@
               <div class="slider-page" key="slider-page-one" v-show="page1">
                 <div class="slider-card"  @click="goList('电子产品')">
                   <div class="slider-card-icon" id="electronic"></div>
-                  <div class="slider-card-title">Electronic Items</div>
-                  <div class="slider-card-else">Laptops, Phones and so on</div>
+                  <div class="slider-card-title">电子产品</div>
+                  <div class="slider-card-else">笔记本电脑, 手机等等</div>
                 </div>
                 <div class="slider-card"  @click="goList('服饰')">
                   <div class="slider-card-icon" id="clothes"></div>
-                  <div class="slider-card-title">Clothes Items</div>
-                  <div class="slider-card-else">Rent a cloth for single use</div>
+                  <div class="slider-card-title">服饰</div>
+                  <div class="slider-card-else">西服，学士服等等</div>
                 </div>
                 <div class="slider-card"  @click="goList('配饰')">
                   <div class="slider-card-icon" id="little"></div>
-                  <div class="slider-card-title">Accessories</div>
-                  <div class="slider-card-else">Watches, necklace and so on</div>
+                  <div class="slider-card-title">配饰</div>
+                  <div class="slider-card-else">手表,项链等等</div>
                 </div>
                 <div class="slider-card"  @click="goList('生活好物')">
                   <div class="slider-card-icon" id="life"></div>
-                  <div class="slider-card-title">Daily Necessities</div>
-                  <div class="slider-card-else">Keep simple but great life</div>
+                  <div class="slider-card-title">生活好物</div>
+                  <div class="slider-card-else">让生活平凡却美好</div>
                 </div>
               </div>
               <div class="slider-page" key="slider-page-two" v-show="page2">
@@ -97,8 +97,8 @@
     <div class="section-featured">
         <div class="section-featured-container">
           <div class="section-featured-title">
-            <div class="section-title wow fadeInLeft">Rent Things The Easier Way</div>
-            <div class="section-title-main wow fadeInLeft">Featured Items</div>
+            <div class="section-title wow fadeInLeft">轻松出租</div>
+            <div class="section-title-main wow fadeInLeft">猜你喜欢</div>
             <div class="section-title-p wow fadeInLeft">Eiusmod temporl incididunt utys labore dolore magna aliqua sed enimaud lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
           </div>
 

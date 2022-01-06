@@ -5,11 +5,11 @@
         <img class="avatar" :src="user.avatar"/>
         <div class="username">{{user.nickName}}</div>
         <div class="nav-bar">
-          <router-link to="/homepage/user/info" class="nav-item">Info</router-link>
+          <router-link to="/homepage/user/info" class="nav-item">个人资料</router-link>
           <div class="split">|</div>
-          <router-link to="/homepage/user/myorder" class="nav-item">My Orders</router-link>
+          <router-link to="/homepage/user/myorder" class="nav-item">订单中心</router-link>
           <div class="split">|</div>
-          <router-link to="/homepage/user/mycollect" class="nav-item">My Collects</router-link>
+          <router-link to="/homepage/user/mycollect" class="nav-item">收藏夹</router-link>
         </div>
       </div>
     </div>

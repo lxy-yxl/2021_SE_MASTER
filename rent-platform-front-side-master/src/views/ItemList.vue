@@ -6,23 +6,23 @@
       <div class="section-banner-bg">
         <div class="section-banner-container">
           <div class="section-banner-main">
-            <div class="section-banner-title wow fadeInLeft" data-wow-iteration="1">Get Anything On Rent</div>
-            <div class="section-banner-text wow fadeInLeft" >Find Thousands of Items (Almost Anything)</div>
+            <div class="section-banner-title wow fadeInLeft" data-wow-iteration="1">租你想租的</div>
+            <div class="section-banner-text wow fadeInLeft" >能找到常见的几乎所有物品</div>
             <div class="section-banner-form">
               <div class="section-banner-search">
                 <div class="section-banner-search-box">
-                  <input v-model="searchInput" class="section-banner-input" type="text" placeholder="Cars, Drones, Electronics, Clothes etc">
-                  <input class="section-banner-button" type="button" value="SEARCH" @click="search()">
+                  <input v-model="searchInput" class="section-banner-input" type="text" placeholder="汽车、无人机、电子产品、服装等等">
+                  <input class="section-banner-button" type="button" value="搜索" @click="search()">
                 </div>
               </div>
             </div>
             <div class="section-banner-bottom">
               <div class="popular-searches">
-                <div class="popular-searches-title">Related Searchs:</div>
+                <div class="popular-searches-title">相联搜索:</div>
                 <div class="popular-searches-list">
-                  <div class="related-searches-item">Canon DSLR's |</div>
-                  <div class="related-searches-item">Canon DSLR's |</div>
-                  <div class="related-searches-item">Canon DSLR's</div>
+                  <div class="related-searches-item">佳能单反 |</div>
+                  <div class="related-searches-item">佳能单反 |</div>
+                  <div class="related-searches-item">佳能单反</div>
                 </div>
               </div>
             </div>
@@ -34,8 +34,8 @@
     <div class="section-featured" ref="test">
         <div class="section-featured-container">
           <div class="section-featured-title">
-            <div class="section-title wow fadeInLeft">Rent Things The Easier Way</div>
-            <div class="section-title-main wow fadeInLeft">Featured Items</div>
+            <div class="section-title wow fadeInLeft">轻松出租</div>
+            <div class="section-title-main wow fadeInLeft">猜你喜欢</div>
             <div class="section-title-p wow fadeInLeft">Eiusmod temporl incididunt utys labore dolore magna aliqua sed enimaud lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
           </div>
           <div class="section-featured-main">
@@ -44,7 +44,7 @@
             :cardInfo="item"
             ></commodityCard>
           </div>
-          <div class="load-more" @click="loadMore()" v-show="loadState">Load More</div>
+          <div class="load-more" @click="loadMore()" v-show="loadState">获取更多</div>
         </div>
       </div>
     </div>

@@ -6,25 +6,24 @@
           <div class="icon" @click="goBack()"></div>
         </div>
         <div class="main">
-            <div class="main-title">Login</div>
+            <div class="main-title">登录</div>
             <div class="main-form">
-              <input :class="{'login-input':true, 'login-input-err':this.userNameErr}" placeholder="Username" @focus="resetErr" v-model="userName">
+              <input :class="{'login-input':true, 'login-input-err':this.userNameErr}" placeholder="用户名" @focus="resetErr" v-model="userName">
               <div class="input-check" v-show="userNameErr">{{this.userNameInfo}}</div>
-              <input :class="{'login-input':true, 'login-input-err':this.pswErr}" placeholder="Password" type="password" @focus="resetErr" v-model="password">
+              <input :class="{'login-input':true, 'login-input-err':this.pswErr}" placeholder="密码" type="password" @focus="resetErr" v-model="password">
               <div class="input-check" v-show="pswErr">{{this.pswInfo}}</div>
             </div>
             <div class="main-lower">
-              <div class="login-btn" @click="login()">Login</div>
-              <div class="register" @click="goRegister()">Register</div>
+              <div class="login-btn" @click="login()">登录</div>
+              <div class="register" @click="goRegister()">注册</div>
             </div>
         </div>
         <div class="bottom">
           <div class="bottom-text"></div>
-          <div class="bottom-text">Contact us</div>
         </div>
       </div>
       <div class="right">
-        <div class="title">Find Anything You Need</div>
+        <div class="title">找到你想要的</div>
         <div class="content">Eiusmod temporl incididunt utys labore dolore magna aliqua sed enimaud lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
       </div>
     </div>

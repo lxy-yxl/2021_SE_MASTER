@@ -6,24 +6,23 @@
           <div class="icon" @click="goBack()"></div>
         </div>
         <div class="main">
-          <div class="main-title">Register</div>
+          <div class="main-title">注册</div>
           <div class="main-form">
-            <input class="login-input" placeholder="Username" v-model="name">
-            <input class="login-input" placeholder="Password" type="password" v-model="psw">
+            <input class="login-input" placeholder="用户名" v-model="name">
+            <input class="login-input" placeholder="密码" type="password" v-model="psw">
           </div>
           <div class="main-lower">
-            <div class="login-btn" @click="Register()">Register</div>
-            <div class="go-login" @click="goLogin()">Login</div>
+            <div class="login-btn" @click="Register()">注册</div>
+            <div class="go-login" @click="goLogin()">登录</div>
             
           </div>
         </div>
         <div class="bottom">
           <div class="bottom-text"></div>
-          <div class="bottom-text">Contact us</div>
         </div>
       </div>
       <div class="right">
-        <div class="title">Find Anything You Need</div>
+        <div class="title">找到你想要的</div>
         <div class="content">Eiusmod temporl incididunt utys labore dolore magna aliqua sed enimaud lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
       </div>
     </div>

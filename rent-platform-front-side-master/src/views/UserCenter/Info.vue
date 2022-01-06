@@ -1,14 +1,14 @@
 <template>
   <div class="user-info">
     <el-tabs type="border-card" tab-position="left" style="border-radius: 25px">
-      <el-tab-pane label="Personal Data">
+      <el-tab-pane label="用户资料">
         <el-form
           ref="PersonalData"
           :model="PersonalData"
           label-width="20%"
           style="margin-top: 4%"
         >
-          <el-form-item label="Avatar：">
+          <el-form-item label="头像：">
             <el-upload
               class="avatar-uploade"
               name="file"
@@ -31,7 +31,7 @@
               ></el-avatar>
             </el-upload>
           </el-form-item>
-          <el-form-item label="Nickname：">
+          <el-form-item label="昵称：">
             <el-input
               v-model="PersonalData.nick_name"
               :disabled="editflag"
@@ -39,7 +39,7 @@
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="Gender：">
+          <el-form-item label="性别：">
             <el-input
               v-model="PersonalData.gender"
               :disabled="editflag"
@@ -47,7 +47,7 @@
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="Telephone：">
+          <el-form-item label="电话：">
             <el-input
               v-model="PersonalData.telephone"
               :disabled="editflag"
@@ -63,7 +63,7 @@
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="Zone：">
+          <el-form-item label="所在地区：">
             <el-input
               v-model="PersonalData.zone"
               :disabled="editflag"
@@ -77,7 +77,7 @@
               round
               v-show="editflag"
               @click="editflag = false"
-              >Edit
+              >编辑
             </el-button>
             <el-button
               icon="el-icon-check"
@@ -86,20 +86,20 @@
               v-show="!editflag"
               @click="editUser"
             >
-              Preserve
+              保存
             </el-button>
             <el-button round v-show="!editflag" @click="editflag = true"
-              >Cancel
+              >取消
             </el-button>
           </el-form-item>
         </el-form>
       </el-tab-pane>
-      <el-tab-pane label="Account Information">
+      <el-tab-pane label="账户信息">
         <el-form label-width="20%">
-          <el-form-item label="User ID："
+          <el-form-item label="用户 ID："
             >{{ PersonalData.userId }}
           </el-form-item>
-          <el-form-item label="Password：">
+          <el-form-item label="密码：">
             <el-input
               v-model="PersonalData.password"
               :disabled="true"
@@ -114,22 +114,22 @@
               @click="passwordchange = true"
               style="position: relative; left: 15px"
             >
-              Change Password
+              修改密码
             </el-button>
           </el-form-item>
-          <el-form-item label="Register Time："
+          <el-form-item label="注册时间："
             >{{ PersonalData.register_time }}
           </el-form-item>
-          <el-form-item label="Role：">
-            <span v-if="PersonalData.role == 0">Ordinary User </span>
-            <span v-else>Administrator</span>
+          <el-form-item label="用户权限：">
+            <span v-if="PersonalData.role == 0">一般用户 </span>
+            <span v-else>管理员</span>
           </el-form-item>
-          <el-form-item label="Reputation："
+          <el-form-item label="信誉度："
             >{{ PersonalData.reputation }}
           </el-form-item>
         </el-form>
         <el-dialog
-          title="Change Password"
+          title="修改密码"
           :visible.sync="passwordchange"
           width="40%"
           center
@@ -142,17 +142,17 @@
             label-width="25%"
             style="margin-right: 5%"
           >
-            <el-form-item label="Orginal Password" prop="orgin">
+            <el-form-item label="原密码" prop="orgin">
               <el-input v-model="passForm.orgin"></el-input>
             </el-form-item>
-            <el-form-item label="New Password" prop="pass">
+            <el-form-item label="新密码" prop="pass">
               <el-input
                 type="password"
                 v-model="passForm.pass"
                 autocomplete="off"
               ></el-input>
             </el-form-item>
-            <el-form-item label="Confirm Password" prop="checkPass">
+            <el-form-item label="确认密码" prop="checkPass">
               <el-input
                 type="password"
                 v-model="passForm.checkPass"
@@ -162,9 +162,9 @@
           </el-form>
           <span slot="footer">
             <el-button type="primary" @click="submitForm('passForm')" round
-              >Confirm</el-button
+              >确认</el-button
             >
-            <el-button @click="passwordchange = false" round>Cancel</el-button>
+            <el-button @click="passwordchange = false" round>取消</el-button>
           </span>
         </el-dialog>
       </el-tab-pane>
@@ -197,13 +197,13 @@ export default {
   data() {
     var checkOrgin = (rule, value, callback) => {
       if (value != this.PersonalData.password) {
-        return callback(new Error("Incorrect input of original password"));
+        return callback(new Error("原密码输入错误！"));
       }
       callback();
     };
     var validatePass = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("Please input a password"));
+        callback(new Error("请输入一个新密码！"));
       } else {
         if (this.passForm.checkPass !== "") {
           this.$refs.passForm.validateField("checkPass");
@@ -213,9 +213,9 @@ export default {
     };
     var validatePass2 = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("Please enter the password again"));
+        callback(new Error("请再次输入密码！"));
       } else if (value !== this.passForm.pass) {
-        callback(new Error("The two passwords are inconsistent!"));
+        callback(new Error("两次输入密码不一致！"));
       } else {
         callback();
       }

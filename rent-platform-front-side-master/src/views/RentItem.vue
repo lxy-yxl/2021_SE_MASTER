@@ -4,24 +4,12 @@
       src="../assets/img/bg-banner-custome.jpg"
       style="z-index: -100; position: fixed; top: 8%; bottom: 0; height: 92%"
     />
-    <!-- <div class="head-box-container" ref="head">
-        <div class="head-box">
-            <div class="head-box-left"></div>
-            <div class="head-box-right">
-            <div class="head-box-menu">
-                <router-link to="/" class="head-box-menu-item"><i class="el-icon-s-home"/>Home</router-link>
-                <router-link to="/homepage/items" class="head-box-menu-item"><i class="el-icon-s-goods"/>Items</router-link>
-                <router-link to="/homepage/user" class="head-box-menu-item"><i class="el-icon-s-order"/>Orders</router-link>
-            </div>
-            <div class="sign-in" >Log Out</div>
-            </div>
-        </div>
-        </div> -->
     <div style="position: absolute; top: 28%; left: 46%; z-index: 99">
-      <div>Upload Pictures of Item</div>
+      <div>添加物品图片</div>
       <el-upload
       class="avatar-uploade"
               name="file"
+              ref="avatar"
               action="http://121.37.172.109:9090/picture/upload"
               :on-success="uploadSuccess"
               multiple
@@ -57,17 +45,17 @@
         label-width="150px"
         style="width: 60%"
       >
-        <el-form-item label="Name" prop="name">
+        <el-form-item label="物品名称" prop="name">
           <el-input v-model="itemForm.name"></el-input>
         </el-form-item>
-        <el-form-item label="Category of Item" prop="tag">
+        <el-form-item label="物品种类" prop="tag">
           <el-radio-group v-model="itemForm.tag">
             <el-radio label="电子产品" border>电子产品</el-radio>
             <el-radio label="服饰" border>服饰</el-radio>
             <el-radio label="生活好物" border>生活好物</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="Price per Day" prop="rent_daily">
+        <el-form-item label="每日租金" prop="rent_daily">
           <el-input-number
             v-model="itemForm.rent_daily"
             controls-position="right"
@@ -78,7 +66,7 @@
           </el-input-number>
         </el-form-item>
 
-        <el-form-item label="Depoist" prop="deposit">
+        <el-form-item label="押金" prop="deposit">
           <el-input-number
             v-model="itemForm.deposit"
             controls-position="right"
@@ -88,17 +76,17 @@
           >
           </el-input-number>
         </el-form-item>
-        <el-form-item label="Description of Item" prop="description">
-          <el-input type="textarea" v-model="itemForm.description"></el-input>
-        </el-form-item>
-        <el-form-item label="new_level" prop="new_level">
+        <el-form-item label="物品新旧程度" prop="new_level">
           <el-input v-model="itemForm.new_level"></el-input>
+        </el-form-item>
+        <el-form-item label="物品详细描述" prop="description">
+          <el-input type="textarea" v-model="itemForm.description"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" round @click="submitForm('itemForm')"
-            >Upload</el-button
+            >提交</el-button
           >
-          <el-button round @click="resetForm('itemForm')">Reset</el-button>
+          <el-button round @click="resetForm('itemForm')">重新输入</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -134,42 +122,42 @@ export default {
           {
             min: 1,
             max: 20,
-            message: "The length must between 1 and 20 characters",
+            message: "物品名称长度在1至20字符内",
             trigger: "blur",
           },
         ],
         tag: [
           {
             required: true,
-            message: "Please select at least one item tag",
+            message: "请选择一个种类",
             trigger: "change",
           },
         ],
         rent_daily: [
           {
             required: true,
-            message: "Please input rental price per day",
+            message: "请输入每日租金",
             trigger: "change",
           },
         ],
         deposit: [
           {
             required: true,
-            message: "Please input deposit",
+            message: "请输入押金",
             trigger: "change",
           },
         ],
         description: [
           {
             required: true,
-            message: "Please input description of item",
+            message: "请输入物品详细描述",
             trigger: "blur",
           },
         ],
         new_level: [
           {
             required: true,
-            message: "Please input new_level of item",
+            message: "请输入物品新旧程度",
             trigger: "blur",
           },
         ],
@@ -199,6 +187,7 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
+        this.$refs.avatar.clearFiles();
     },
     // el-upload相关方法
  
@@ -252,88 +241,3 @@ beforeAvatarUpload(file) {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.head-box-container {
-  position: fixed;
-  background-color: white;
-  top: 0;
-  height: 80px;
-  width: 100%;
-  padding: 0 40px;
-  z-index: 99999;
-  transition: all 0.5s ease;
-
-  .head-box {
-    height: 100%;
-    width: 100%;
-    padding: 30px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .head-box-left {
-      height: 60px;
-      width: 187px;
-      background-image: url("../assets/img/logo.svg");
-    }
-
-    .head-box-right {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-
-      .head-box-menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        padding-right: 35px;
-
-        .head-box-menu-item {
-          user-select: none;
-          width: 90px;
-          height: 60px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          transition: all 0.3s ease;
-          text-decoration: none;
-        }
-
-        .head-box-menu-item:hover {
-          color: rgba(245, 42, 42, 0.616);
-        }
-      }
-
-      .sign-in {
-        user-select: none;
-        text-decoration: underline;
-        margin-right: 53px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        &:before {
-          content: "";
-          display: inline-block;
-
-          width: 20px;
-          height: 20px;
-
-          background-image: url("../assets/Login.svg");
-          background-size: cover;
-          background-repeat: no-repeat;
-          margin-right: 3px;
-        }
-      }
-
-      .sign-in:hover {
-        color: rgba(245, 42, 42, 0.616);
-      }
-    }
-  }
-}
-</style>

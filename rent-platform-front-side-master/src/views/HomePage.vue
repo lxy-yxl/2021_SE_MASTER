@@ -16,15 +16,15 @@
         <div class="head-box-left"></div>
         <div class="head-box-right">
           <div class="head-box-menu">
-            <router-link to="/" class="head-box-menu-item">Home</router-link>
-            <router-link :to="{path:'/homepage/items',query:{mode:0}}" class="head-box-menu-item">Items</router-link>
-            <router-link to="/homepage/user" class="head-box-menu-item">My Info</router-link>
+            <router-link to="/" class="head-box-menu-item"><i class="el-icon-s-home"/>首页</router-link>
+            <router-link :to="{path:'/homepage/items',query:{mode:0}}" class="head-box-menu-item"><i class="el-icon-s-goods"/>出租品</router-link>
+            <router-link to="/homepage/user" class="head-box-menu-item"><i class="el-icon-user-solid"/>个人主页</router-link>
           </div>
-          <router-link to="/login" class="sign-in" v-show="login">Sign In</router-link>
-          <!-- <div class="sign-in" v-show="!login" @click="logout">Log Out</div> -->
+          <router-link to="/login" class="sign-in" v-show="login">登录</router-link>
+          <!-- <div class="sign-in" v-show="!login" @click="logout">退出登录</div> -->
            <router-link to="/homepage/rent">
             <div class="head-box-btn">
-             <div class="head-box-btn-content">Rent An Item</div>
+             <div class="head-box-btn-content">我要出租</div>
             </div>
           </router-link>
           <div class="user-active" v-show="!login">
@@ -38,7 +38,7 @@
               <img class="user-avatar" @click="showOption()" :src="user.avatar"/>
               <div class="option-box-container" v-show="option" @mouseleave="hideOption()">
                 <div class="option-box" @click="logout()">
-                  <div class="option-item">Log out</div>
+                  <div class="option-item"><i class="el-icon-switch-button"/>退出登录</div>
                 </div>
               </div>
             </div>

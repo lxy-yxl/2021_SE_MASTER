@@ -3,11 +3,11 @@
   <div class="order-card" @click="goDetail">
             <img class="picture" :src="cardInfo.picture_url"/>
               <div class="section-featured-card-main">
-                <div class="card-row">Order Id：{{this.cardInfo.order_id}}</div>
-                <div class="card-row">Created Time：{{formatTime(this.cardInfo.created_time)}}</div>
-                <div class="card-row">Rent Time：{{formatTime(this.cardInfo.lentout_time)}}</div>
-                <div class="card-row">Return Time：{{formatTime(this.cardInfo.return_time)}}</div>
-                <div class="card-row">Status：{{this.cardInfo.status}}</div>
+                <div class="card-row">订单 ID：{{this.cardInfo.order_id}}</div>
+                <div class="card-row">创建时间：{{formatTime(this.cardInfo.created_time)}}</div>
+                <div class="card-row">借用时间：{{formatTime(this.cardInfo.lentout_time)}}</div>
+                <div class="card-row">归还时间：{{formatTime(this.cardInfo.return_time)}}</div>
+                <div class="card-row">订单状态：{{this.cardInfo.status}}</div>
               </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
 <script>
 export default {
   props:{
-    cardInfo:Object,
+    cardInfo:new Object,
     required:true,
   },
   data () {

@@ -85,6 +85,11 @@ const routes = [
     name: 'Register',
     component: ()=>import('../views/Register.vue')
   },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: ()=>import('../views/Admin.vue')
+  },
 ]
 const router = new VueRouter({
   mode: 'history',
@@ -105,7 +110,7 @@ router.beforeEach((to, from, next) => {
       query: { redirect: to.fullPath } //将刚刚要去的路由path作为参数，方便登录成功后直接跳转到该路由
       });
     }
-  } 
+  }
   else {
     next();
   }

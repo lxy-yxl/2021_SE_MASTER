@@ -28,21 +28,8 @@
                     <div>
                       <div class="price-item">
                         <div class="price-item-value">${{this.detail.rent_daliy}}/天</div>
-                        <!-- <div class="price-item-time">Per Day</div> -->
                       </div>
                     </div>
-                    <!-- <div>
-                      <div class="price-item">
-                        <div class="price-item-value">$80</div>
-                        <div class="price-item-time">Per Week</div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="price-item-2">
-                        <div class="price-item-value">$195</div>
-                        <div class="price-item-time">Per Month</div>
-                      </div>
-                    </div> -->
                   </div>
                 </div>
               </div>
@@ -256,7 +243,7 @@
                               <li><i class="far fa-star"></i></li>
                             </ul>
                           </div> -->
-                          
+
                         <!-- </div> -->
                       </div>
 
@@ -331,17 +318,17 @@ export default {
     .then(()=>{
       this.getComments();
     })
-    
 
- 
+
+
 
     //获取订单的信息
-    
 
 
-    
 
-    
+
+
+
   },
   data () {
     return {
@@ -429,7 +416,7 @@ export default {
         this.orderId=res.data.data;
         this.checkOut=true;
       })
-      
+
     },
     goComment(){
       this.$refs.comment.scrollIntoView();
@@ -468,13 +455,15 @@ export default {
             console.log(res);
             alert('submit');
           })
-          
+
         }
       }
     }
   }
 }
 </script>
+
+
 <style lang="scss" scoped>
 .item-detail {
   width: 100%;
@@ -603,7 +592,7 @@ export default {
                 .price-item {
                   width: 100px;
                   text-align: center;
-                  
+
 
                   .price-item-value {
                     font-size: 30px;

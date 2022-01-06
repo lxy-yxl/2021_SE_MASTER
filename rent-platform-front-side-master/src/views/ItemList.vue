@@ -452,7 +452,6 @@ export default {
           transition: all .3s ease;
           &:hover{
             box-shadow:  25px 25px 50px #b8b8b8,
-             
           }
         }
       }

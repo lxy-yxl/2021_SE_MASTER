@@ -9,6 +9,8 @@
           <div class="split">|</div>
           <router-link to="/homepage/user/myorder" class="nav-item">订单中心</router-link>
           <div class="split">|</div>
+          <router-link to="/homepage/user/myobject" class="nav-item">我的物品</router-link>
+          <div class="split">|</div>
           <router-link to="/homepage/user/mycollect" class="nav-item">收藏夹</router-link>
         </div>
       </div>

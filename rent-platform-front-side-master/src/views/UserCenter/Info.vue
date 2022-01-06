@@ -1,6 +1,6 @@
 <template>
   <div class="user-info">
-    <el-tabs type="border-card" tab-position="left" style="border-radius: 25px">
+    <el-tabs type="border-card" tab-position="left" style="border-radius: 25px;">
       <el-tab-pane label="用户资料">
         <el-form
           ref="PersonalData"
@@ -12,10 +12,11 @@
             <el-upload
               class="avatar-uploade"
               name="file"
-              action="http://121.37.172.109:9090/picture/upload"
+              action="http://101.35.194.132:9090/picture/upload"
               :on-success="uploadSuccess"
               multiple
               :limit="1"
+              :disabled="editflag"
               :on-exceed="handleExceed"
               :on-progress="uploading"
               :file-list="fileList"
@@ -88,7 +89,7 @@
             >
               保存
             </el-button>
-            <el-button round v-show="!editflag" @click="editflag = true"
+            <el-button round v-show="!editflag" @click="HandleCancel"
               >取消
             </el-button>
           </el-form-item>
@@ -164,7 +165,7 @@
             <el-button type="primary" @click="submitForm('passForm')" round
               >确认</el-button
             >
-            <el-button @click="passwordchange = false" round>取消</el-button>
+            <el-button @click="CancelChange" round>取消</el-button>
           </span>
         </el-dialog>
       </el-tab-pane>
@@ -182,10 +183,15 @@ export default {
       this.$router.push("/");
     } else {
       this.PersonalData.nick_name = user.nickName;
+      this.nick_name= user.nickName;
       this.PersonalData.gender = user.gender;
+      this.gender = user.gender;
       this.PersonalData.telephone = user.telephone;
+      this.telephone= user.telephone;
       this.PersonalData.email = user.email;
+      this.email=user.email;
       this.PersonalData.zone = user.zone;
+      this.zone= user.zone;
       this.PersonalData.avatar = user.avatar;
       this.PersonalData.userId = user.userId;
       this.PersonalData.password = user.password;
@@ -233,6 +239,11 @@ export default {
         role: 0,
         reputation: 0,
       },
+       nick_name: "",
+        gender: "",
+        telephone: "",
+        email: "",
+        zone: "",
       fileList: [],
       editflag: true,
       passwordchange: false,
@@ -249,10 +260,6 @@ export default {
     };
   },
   methods: {
-    HandlePreserve() {
-      this.editflag = true;
-      console.log(this.PersonalData);
-    },
     editUser() {
       console.log(this.PersonalData);
       console.log('222');
@@ -268,18 +275,31 @@ export default {
         });
       this.editflag = true;
     },
+     HandleCancel(){
+      this.PersonalData.nick_name=this.nick_name,
+            this.PersonalData.gender=this.gender,
+           this.PersonalData.telephone=this.telephone,
+           this.PersonalData.email=this.email,
+            this.PersonalData.zone=this.zone
+              this.editflag=true;
+            },
     submitForm(formName) {
-      this.passwordchange = false;
       console.log(this.PersonalData);
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.PersonalData.password=this.passForm.pass;
-      console.log(this.PersonalData);
-          alert("submit!");
+          console.log(this.PersonalData);
           axios
             .updateUser(this.PersonalData)
             .then((res) => {
               console.log("上传成功");
+                this.$message({
+                message: "修改成功",
+                type: "success",
+                duration: 1000,
+                offset:100
+              });
+             this.passwordchange = false;
       console.log(this.PersonalData);
             })
             .catch((err) => {
@@ -291,6 +311,10 @@ export default {
         }
       });
     },
+        CancelChange(){
+      this.$refs.passForm.resetFields();
+       this.passwordchange = false
+        },
     // el-upload相关方法
 
     uploadSuccess(res) {
@@ -308,6 +332,7 @@ export default {
           message: "上传成功",
           type: "success",
           duration: 1000,
+          offset:100
         });
         // 上传成功后为当前页面中的img赋值src，即照片回显（回显的地址是后台传递给前端的）
         // this.imgShow = true
@@ -317,6 +342,7 @@ export default {
           message: res.msg,
           type: "error",
           duration: 1000,
+          offset:100
         });
         // this.$message.error(res.msg)
       }
@@ -333,6 +359,7 @@ export default {
         }个文件，共选择了${files.length + fileList.length}个文件`,
         type: "warning",
         duration: 1000,
+        offset:100
       });
     },
 
@@ -355,10 +382,6 @@ export default {
   margin-bottom: 5%;
   width: 60%;
   height: auto;
-  //display: flex;
-  //flex-direction: column;
-  //justify-content: flex-start;
-  //align-items: left;
   font-size: 30px;
 }
 .input {

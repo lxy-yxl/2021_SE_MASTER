@@ -1,16 +1,6 @@
 <template>
   <div id="home-page">
     <!-- 头部导航栏选择绝对布局 -->
-    <div class="message-container" v-show="msg">
-      <div class="message-box">
-        <div class="message-box-head">
-          <div class="close" @click="closeMsg"></div>
-        </div>
-        <div class="message-box-main">
-
-        </div>
-      </div>
-    </div>
     <div class="head-box-container" ref="head">
       <div class="head-box">
         <div class="head-box-left"></div>
@@ -18,30 +8,28 @@
           <div class="head-box-menu">
             <router-link to="/" class="head-box-menu-item"><i class="el-icon-s-home"/>首页</router-link>
             <router-link :to="{path:'/homepage/items',query:{mode:0}}" class="head-box-menu-item"><i class="el-icon-s-goods"/>出租品</router-link>
+            <router-link to="/homepage/posts" class="head-box-menu-item"><i class="el-icon-s-order"/>需求中心</router-link>
             <router-link to="/homepage/user" class="head-box-menu-item"><i class="el-icon-user-solid"/>个人主页</router-link>
           </div>
           <router-link to="/login" class="sign-in" v-show="login">登录</router-link>
-          <!-- <div class="sign-in" v-show="!login" @click="logout">退出登录</div> -->
            <router-link to="/homepage/rent">
             <div class="head-box-btn">
              <div class="head-box-btn-content">我要出租</div>
             </div>
           </router-link>
           <div class="user-active" v-show="!login">
-            <div class="message">
-              <div class="msg-icon" @click="openMsg()"></div>
-              <div class="red-point-box">
-                <div class="red-point" v-show="newMsg"></div>
-              </div>
-            </div>
-            <div class="user-head" >
-              <img class="user-avatar" @click="showOption()" :src="user.avatar"/>
-              <div class="option-box-container" v-show="option" @mouseleave="hideOption()">
-                <div class="option-box" @click="logout()">
-                  <div class="option-item"><i class="el-icon-switch-button"/>退出登录</div>
-                </div>
-              </div>
-            </div>
+            <el-dropdown style="margin-top:8px">
+            <span>
+              <el-avatar :src="user.avatar" :size="50"/>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>
+                <el-button icon="el-icon-switch-button" type="text" @click="logout()">
+                  退出登录
+                  </el-button>
+                  </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
           </div>
         </div>
       </div>
@@ -63,8 +51,6 @@ export default {
   data () {
     return {
       option:false,
-      newMsg:false,//新消息提醒
-      msg:false,//消息窗口,
       searchInput:'',
       userDefault:{
         userId:-1,
@@ -86,70 +72,11 @@ export default {
       this.$store.commit('LOGOUT');
       this.$router.push('/');
     },
-    showOption(){
-      this.option=true;
-    },
-    hideOption(){
-      this.option=false;
-    },
-    openMsg(){
-      this.msg=true;
-    },
-    closeMsg(){
-      this.msg=false;
-    },
-
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .message-container{
-    position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right: 0;
-    backdrop-filter: brightness(80%);
-    z-index: 999999;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    .message-box{
-      width:400px;
-      height: 100%;
-      background: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      //background-image: url('../assets/flower.png');
-      background-size: auto 200px;
-      background-repeat: no-repeat;
-      background-position: bottom center;
-      .message-box-head{
-        width:100%;
-        height: auto;
-        padding:5px;
-        .close{
-          width:20px;
-          height: 20px;
-          background-image: url('../assets/close.png');
-          background-size: cover;
-          transition: all .3s ease;
-          &:hover{
-            transform: rotate(90deg);
-          }
-        }
-      }
-
-      .message-box-main{
-        height: calc(100% - 50px);
-        width:100%;
-        //background-color: lightblue;
-      }
-    }
-  }
 .head-box-container {
   position: fixed;
   background-color: white;
@@ -235,10 +162,10 @@ export default {
         font-size: 16px;
         background-color: rgb(43, 90, 225);
         color: white;
-        width: 170px;
+        width: 150px;
         height: 50px;
         border-radius: 25px;
-        //margin-right: 50px;
+        margin-right: 30px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -269,12 +196,6 @@ export default {
           height: auto;
           margin-left: 20px;
           margin-right: 20px;
-          .msg-icon{
-            width:25px;
-            height:25px;
-            background-image: url('../assets/msg.png');
-            background-size: cover;
-          }
           .red-point-box{
             width:0;
             height:100%;
@@ -284,38 +205,6 @@ export default {
             .red-point{
               border: 3.6px solid red;/*设置红色*/
               border-radius:3.6px;/*设置圆角*/
-            }
-          }
-        }
-
-        .user-head{
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          .user-avatar{
-            width:50px;
-            height:50px;
-            border-radius: 25px;
-            background-color: gray;
-          }
-          .option-box-container{
-            height:0;
-            width: 0;
-            .option-box{
-              padding:8px 0;
-              width:100px;
-              background-color: rgb(59, 103, 235);
-              border-radius: 10px;
-              transform: translateX(-25%) translateY(10px);
-              &:hover{
-                background-color: rgb(29, 76, 218);
-              }
-              .option-item{
-                user-select: none;
-                color: white;
-                width:100%;
-                text-align: center;
-              }
             }
           }
         }

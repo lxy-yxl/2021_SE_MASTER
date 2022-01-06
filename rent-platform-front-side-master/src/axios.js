@@ -18,24 +18,6 @@ instance.interceptors.request.use(
   return config;
  }
 );
-// respone拦截器
-// instance.interceptors.response.use(
-//  response => {
-//   return response;
-//  },
-//  error => { //默认除了2XX之外的都是错误的，就会走这里
-//   if (error.response) {
-//    switch (error.response.status) {
-//     case 401:
-//      router.replace({ //跳转到home页面
-//       path: 'home',
-//       //query: { redirect: router.currentRoute.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由
-//      });
-//    }
-//   }
-//   return Promise.reject(error.response);
-//  }
-// );
 var url = 'http://101.35.194.132:9090/';  //服务器连接
 export default {
   //这里export的是axios
@@ -87,6 +69,24 @@ export default {
   getOrderList(id){
     return instance.get(url+'/order/getOrderList?user_id='+id);
   },
+  getMyObject(id){
+    return instance.get(url+'object/viewOwnObjectList?user_id='+id);
+  },
+  deleteObject(id){
+    return instance.post(url+'object/removeObject?object_id='+id);
+  },
+  getPosts(){
+    return instance.get(url+'/post/viewAllPosts');
+  },
+  getMyPost(id){
+    return instance.get(url+'/post/viewMyPosts?user_id='+id);
+  },
+  publishPost(data){
+    return instance.post(url+'/post/publishPost?user_id='+data.user_id+'&title='+data.title+'&content='+data.content+'&time='+data.time);
+  },
+  deletePost(id){
+    return instance.post(url+'/post/deleteMypost?post_id='+id);
+  },
   register(data){
     return instance.post(url+'/user/insert',data);
   },
@@ -94,7 +94,6 @@ export default {
     return instance.get(url+'/remarks/getRemarkList?object_id='+id);
   },
   createOrder(data){
-    //console.log('url',url+'/order/generateOrder?object_id='+data.objectId+'&borrower_id='+data.userId+'&lentout_time='+data.time1+'&return_time='+data.time2+'&campus='+data.zone);
     return instance.post(url+'/order/generateOrder?object_id='+data.objectId+'&borrower_id='+data.userId+'&lentout_time='+data.time1+'&return_time='+data.time2+'&campus='+data.zone);
   },
   cancleOrder(id){

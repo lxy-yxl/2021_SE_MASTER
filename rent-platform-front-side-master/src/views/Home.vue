@@ -103,22 +103,6 @@
           </div>
 
           <div class="section-featured-main">  
-            <!-- <div class="section-featured-card">
-              <img class="picture" src="https://m2.im5i.com/2021/12/29/UT2mEq.jpg"/>
-              <div class="section-featured-card-main">
-                <div class="card-title">Canon 3D - MK III</div>
-                <div class="card-description">Best DSLR Camera available that Best DSLR Camera available that Best DSLR Camera available that</div>
-                <div class="price">
-                  <div class="price-title">Rent For</div>
-                  <div class="price-content">$45/Day</div>
-                </div>
-                <div class="line"></div>
-                <div class="owner">
-                  <div class="owner-icon"></div>
-                  <div class="owner-name">Daniel Thomson</div>
-                </div>
-              </div>
-            </div> -->
             <commodityCard
             v-for="item in this.recommendList" :key="item.object_id"
             :cardInfo="item"

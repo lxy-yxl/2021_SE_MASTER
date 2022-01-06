@@ -286,7 +286,8 @@ export default {
     pay(){
       axios.pay(this.orderId)
       .then(res=>{
-        console.log(res);
+        console.log(res.data.data);
+        window.open(res.data.data)
         this.checkOut=false;
       })
       return;

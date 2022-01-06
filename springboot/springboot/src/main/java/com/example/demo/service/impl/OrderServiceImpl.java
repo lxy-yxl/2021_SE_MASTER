@@ -108,4 +108,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
 
+    public String getObjectName(Integer order_id){
+        String objectName=orderMapper.getObjectName(order_id);
+        return objectName;
+    }
+
+
+
+
 }

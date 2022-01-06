@@ -18,4 +18,5 @@ public interface OrderMapper extends BaseMapper<Order> {
 
     List<JSONObject> getOrderList(Integer user_id);
 
+    String getObjectName(Integer order_id);
 }

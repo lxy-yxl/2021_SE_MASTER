@@ -5,6 +5,7 @@ import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.example.demo.common.Result;
 import com.example.demo.entity.Order;
+import com.example.demo.service.impl.ObjectServiceImpl;
 import com.example.demo.service.impl.OrderServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,8 @@ import java.util.List;
 public class OrderController {
     @Resource
     OrderServiceImpl orderService;
+    @Resource
+    ObjectServiceImpl objectService;
 
 
     @GetMapping("getOrderList")
@@ -87,11 +90,12 @@ public class OrderController {
     @GetMapping("pay")
     public Result<?> pay(Integer order_id){
         int count = orderService.pay(order_id);
+        String payUrl="http://localhost:9090/alipay/pay?subject="+objectService.getById((orderService.getById(order_id).getObjectId())).getName()+"&traceNo="+order_id+"&totalAmount="+orderService.getById(order_id).getRentTotal();
         if(count==-1)
             return Result.error("-1", "订单不存在");
         else if (count==-2)
             return Result.error("-2", "操作失败");
-        else return Result.success();
+        else return Result.success(payUrl);
     }
 
 }

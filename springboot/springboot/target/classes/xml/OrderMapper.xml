@@ -8,4 +8,11 @@
             where `order`.borrower_id=#{user_id}
     </select>
 
+
+    <select id="getObjectName" resultType="cn.hutool.json.JSONObject">
+        select object.name
+        from `order` left outer join object on `order`.object_id=object.object_id
+        where `order`.order_id=#{order_id}
+    </select>
+
 </mapper>

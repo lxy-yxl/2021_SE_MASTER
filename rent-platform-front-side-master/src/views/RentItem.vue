@@ -185,7 +185,7 @@ export default {
               console.log("上传成功",res.data.data);
               //var item_id=res.data.data
             this.$router.push({
-              path:'/homepage/user/myobject',
+              path:'/homepage',
              })
             })
             .catch((err) => {

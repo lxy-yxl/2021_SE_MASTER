@@ -19,7 +19,7 @@ export default {
             Posts:[{
                 postID:0,
                 userId:0,
-                title:null,
+                title:"还没有人发布过需求",
                 content:null,
                 time:null,
                 expectedPrice:0
@@ -33,6 +33,7 @@ export default {
   {
       axios.getPosts()
       .then((res)=>{
+          console.log("post",res.data.data.records)
         this.Posts=res.data.data.records
       })
   }

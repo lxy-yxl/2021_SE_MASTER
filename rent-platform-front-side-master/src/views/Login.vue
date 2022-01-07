@@ -29,7 +29,7 @@
       </div>
       <div class="right">
         <div class="title">找到你想要的</div>
-        <div class="content">Eiusmod temporl incididunt utys labore dolore magna aliqua sed enimaud lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div class="content">Rent what you want<br>Can find almost all common items</div>
       </div>
     </div>
   </div>

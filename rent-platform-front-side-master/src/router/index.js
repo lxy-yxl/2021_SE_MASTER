@@ -28,7 +28,10 @@ const routes = [
       {
         path: 'ItemDetail/:id',
         name: 'ItemDetail',
-        component: ()=>import('../views/ItemDetail')//lazy-load
+        component: ()=>import('../views/ItemDetail'),//lazy-load
+        meta:{
+          requiresAuth:true,
+        },
       },
       {
         path: 'rent',

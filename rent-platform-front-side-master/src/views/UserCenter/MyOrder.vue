@@ -2,11 +2,6 @@
   <div class="item-list">
     <div class="section-featured">
         <div class="section-featured-container">
-          <!-- <div class="section-featured-title">
-            <div class="section-title wow fadeInLeft">Rent Things The Easier Way</div>
-            <div class="section-title-main wow fadeInLeft">Featured Items</div>
-            <div class="section-title-p wow fadeInLeft">Eiusmod temporl incididunt utys labore dolore magna aliqua sed enimaud lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-          </div> -->
 
           <div class="section-featured-main">
             <orderCard

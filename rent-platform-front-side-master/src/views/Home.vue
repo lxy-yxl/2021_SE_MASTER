@@ -34,14 +34,6 @@
               </div>
             </div>
             <div class="section-banner-bottom">
-              <!-- <div class="popular-searches">
-                <div class="popular-searches-title">热门搜索:</div>
-                <div class="popular-searches-list">
-                  <div class="popular-searches-item"></div>
-                  <div class="popular-searches-item"></div>
-                  <div class="popular-searches-item"></div>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>

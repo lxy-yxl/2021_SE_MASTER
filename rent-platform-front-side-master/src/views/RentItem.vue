@@ -62,9 +62,9 @@
             :min="0"
             :step="1"
             :precision='0'
-            style="width: 100%"
+            style="width: 50%"
           >
-          </el-input-number>
+          </el-input-number>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元
         </el-form-item>
 
         <el-form-item label="押金" prop="deposit">
@@ -74,9 +74,9 @@
             :min="0"
             :step="1"
             :precision='0'
-            style="width: 100%"
+            style="width: 50%"
           >
-          </el-input-number>
+          </el-input-number>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元
         </el-form-item>
         <el-form-item label="物品新旧程度" prop="new_level">
           <el-input v-model="itemForm.new_level"></el-input>

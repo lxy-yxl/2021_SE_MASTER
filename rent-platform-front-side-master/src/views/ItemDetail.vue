@@ -27,7 +27,7 @@
                       class="section-banner-grid">
                     <div>
                       <div class="price-item">
-                        <div class="price-item-value">${{this.detail.rent_daliy}}/天</div>
+                        <div class="price-item-value">￥{{this.detail.rent_daliy}}/天</div>
                       </div>
                     </div>
                   </div>
@@ -526,7 +526,7 @@ export default {
                 flex-direction: row;
 
                 .price-item {
-                  width: 100px;
+                  width: 150px;
                   text-align: center;
 
 

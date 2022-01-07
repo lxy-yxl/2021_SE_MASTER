@@ -6,7 +6,7 @@
                 <div class="card-description">{{cardInfo.post.content}}</div>
                 <div class="price">
                   <div class="price-title">预期价格</div>
-                  <div class="price-content">${{cardInfo.post.expectedPrice}}/天</div>
+                  <div class="price-content">￥{{cardInfo.post.expectedPrice}}/天</div>
                 </div>
                 <div class="line"></div>
                 <div class="bottom-part">

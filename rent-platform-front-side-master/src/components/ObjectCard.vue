@@ -6,7 +6,7 @@
                 <div class="card-description">{{cardInfo.object.description}}</div>
                 <div class="price">
                   <div class="price-title">租金</div>
-                  <div class="price-content">${{cardInfo.object.rentDaliy}}/天</div>
+                  <div class="price-content">￥{{cardInfo.object.rentDaliy}}/天</div>
                 </div>
                 <div class="line"></div>
                 <div class="bottom-part">

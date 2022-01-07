@@ -392,7 +392,6 @@ export default {
             console.log(res);
             alert('评价成功');
           })
-
         }
       }
     }

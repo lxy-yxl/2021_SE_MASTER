@@ -6,74 +6,90 @@
         <div class="head-box-left"></div>
         <div class="head-box-right">
           <div class="head-box-menu">
-            <router-link to="/" class="head-box-menu-item"><i class="el-icon-s-home"/>首页</router-link>
-            <router-link :to="{path:'/homepage/items',query:{mode:0}}" class="head-box-menu-item"><i class="el-icon-s-goods"/>出租品</router-link>
-            <router-link to="/homepage/posts" class="head-box-menu-item"><i class="el-icon-s-order"/>需求中心</router-link>
-            <router-link to="/homepage/user" class="head-box-menu-item"><i class="el-icon-user-solid"/>个人主页</router-link>
+            <router-link to="/" class="head-box-menu-item"
+              ><i class="el-icon-s-home" />首页</router-link
+            >
+            <router-link
+              :to="{ path: '/homepage/items', query: { mode: 0 } }"
+              class="head-box-menu-item"
+              ><i class="el-icon-s-goods" />出租品</router-link
+            >
+            <router-link to="/homepage/posts" class="head-box-menu-item"
+              ><i class="el-icon-s-order" />需求中心</router-link
+            >
+            <router-link to="/homepage/user" class="head-box-menu-item"
+              ><i class="el-icon-user-solid" />个人主页</router-link
+            >
           </div>
-          <router-link to="/login" class="sign-in" v-show="login">登录</router-link>
-           <router-link to="/homepage/rent">
+          <router-link to="/login" class="sign-in" v-show="login"
+            >登录</router-link
+          >
+          <router-link to="/homepage/rent">
             <div class="head-box-btn">
-             <div class="head-box-btn-content">我要出租</div>
+              <div class="head-box-btn-content">我要出租</div>
             </div>
           </router-link>
           <div class="user-active" v-show="!login">
-            <el-dropdown style="margin-top:8px">
-            <span>
-              <el-avatar :src="user.avatar" :size="50"/>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>
-                <el-button icon="el-icon-switch-button" type="text" @click="logout()">
-                  退出登录
+            <el-dropdown style="margin-top: 8px">
+              <span>
+                <el-avatar :src="user.avatar" :size="50" />
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>
+                  <el-button
+                    icon="el-icon-switch-button"
+                    type="text"
+                    @click="logout()"
+                  >
+                    退出登录
                   </el-button>
-                  </el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
           </div>
         </div>
       </div>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
   computed: {
-    login:function(){
+    login: function () {
       return !this.$store.state.login;
     },
-    user:function(){
-      return this.$store.state.user||this.userDefault;
-    }
+    user: function () {
+      return this.$store.state.user || this.userDefault;
+    },
   },
-  data () {
+  data() {
     return {
-      option:false,
-      searchInput:'',
-      userDefault:{
-        userId:-1,
-        nickName:'',
-        password:'',
-        avatar:'',
-        gender:'',
-        telephone:'',
-        email:'',
-        zone:null,
-        registerTime:null,
-        role:0,
-        reputation:0
-      }
-    }
+      option: false,
+      searchInput: "",
+      userDefault: {
+        userId: -1,
+        nickName: "",
+        password: "",
+        avatar: "",
+        gender: "",
+        telephone: "",
+        email: "",
+        zone: null,
+        registerTime: null,
+        role: 0,
+        reputation: 0,
+      },
+    };
   },
   methods: {
-    logout(){
-      this.$store.commit('LOGOUT');
-      this.$router.push('/');
+    logout() {
+      this.$store.commit("LOGOUT");
+      this.$router.push("/");
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -85,7 +101,7 @@ export default {
   width: 100%;
   padding: 0 40px;
   z-index: 99999;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 
   .head-box {
     height: 100%;
@@ -98,7 +114,7 @@ export default {
     .head-box-left {
       height: 60px;
       width: 187px;
-      background-image: url('../assets/img/logo.svg');
+      background-image: url("../assets/img/logo.png");
     }
 
     .head-box-right {
@@ -122,7 +138,7 @@ export default {
           flex-direction: row;
           justify-content: center;
           align-items: center;
-          transition: all .3s ease;
+          transition: all 0.3s ease;
           text-decoration: none;
         }
 
@@ -140,13 +156,13 @@ export default {
         align-items: center;
 
         &:before {
-          content: '';
+          content: "";
           display: inline-block;
 
           width: 20px;
           height: 20px;
 
-          background-image: url('../assets/Login.svg');
+          background-image: url("../assets/Login.svg");
           background-size: cover;
           background-repeat: no-repeat;
           margin-right: 3px;
@@ -170,11 +186,11 @@ export default {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background-image: url('../assets/add.png');
+        background-image: url("../assets/add.png");
         background-repeat: no-repeat;
         background-size: 25px 25px;
         background-position: left 20px center;
-        transition: all .3s ease;
+        transition: all 0.3s ease;
 
         .head-box-btn-content {
           flex-shrink: 0;
@@ -186,25 +202,25 @@ export default {
         background-color: rgb(34, 69, 175);
       }
 
-      .user-active{
+      .user-active {
         display: flex;
         flex-direction: row;
         align-items: center;
-          .message{
+        .message {
           display: flex;
           flex-direction: row;
           height: auto;
           margin-left: 20px;
           margin-right: 20px;
-          .red-point-box{
-            width:0;
-            height:100%;
+          .red-point-box {
+            width: 0;
+            height: 100%;
             display: felx;
             flex-direction: column;
             justify-content: flex-start;
-            .red-point{
-              border: 3.6px solid red;/*设置红色*/
-              border-radius:3.6px;/*设置圆角*/
+            .red-point {
+              border: 3.6px solid red; /*设置红色*/
+              border-radius: 3.6px; /*设置圆角*/
             }
           }
         }

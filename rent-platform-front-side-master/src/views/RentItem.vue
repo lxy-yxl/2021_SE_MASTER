@@ -170,22 +170,23 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$message({
-          type:"success",
-          message: '上传成功！',
-          offset:100,
-          duration: 3000
-        });
           console.log(this.itemForm);
           //this.$refs.upload.submit();
           axios
             .uploadObject(this.itemForm)
             .then((res) => {
+              this.$message({
+              type:"success",
+              message: '上传成功！',
+              offset:100,
+              duration: 3000
+            });
+
               console.log("上传成功",res.data.data);
-              var item_id=res.data.data
+              //var item_id=res.data.data
             this.$router.push({
-             path:'/homepage/ItemDetail/'+item_id,
-            })
+              path:'/homepage/user/myobject',
+             })
             })
             .catch((err) => {
               console.log(err);

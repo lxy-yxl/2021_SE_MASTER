@@ -390,9 +390,8 @@ export default {
           axios.comment(data)
           .then(res=>{
             console.log(res);
-            alert('submit');
+            alert('评价成功');
           })
-
         }
       }
     }

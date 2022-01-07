@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7ea5df-c196-467d-85e2-af7c9116669f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/rent-platform-front-side-master/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/rent-platform-front-side-master/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/springboot/demo.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="6a7ea5df-c196-467d-85e2-af7c9116669f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

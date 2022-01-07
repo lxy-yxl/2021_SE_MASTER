@@ -74,7 +74,7 @@ export default {
     return instance.get(url+'object/viewOwnObjectList?user_id='+id);
   },
   deleteObject(id){
-    return instance.post(url+'object/removeObject?object_id='+id);
+    return instance.get(url+'object/removeObject?object_id='+id);
   },
   getPosts(){
     return instance.get(url+'/post/viewAllPosts');

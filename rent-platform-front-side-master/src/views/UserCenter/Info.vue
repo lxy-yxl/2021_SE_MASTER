@@ -118,9 +118,9 @@
               修改密码
             </el-button>
           </el-form-item>
-          <el-form-item label="注册时间："
+          <!-- <el-form-item label="注册时间："
             >{{ PersonalData.register_time }}
-          </el-form-item>
+          </el-form-item> -->
           <el-form-item label="用户权限：">
             <span v-if="PersonalData.role == 0">一般用户 </span>
             <span v-else>管理员</span>

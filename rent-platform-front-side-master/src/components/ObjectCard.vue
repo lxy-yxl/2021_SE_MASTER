@@ -24,6 +24,7 @@
 
 <script>
 import axios from '../axios'
+import router from '../router'
 export default {
   props:{
     cardInfo:new Object,
@@ -43,7 +44,11 @@ export default {
           type: "success",
           offset:100
         });
-
+         axios.getMyObject(this.$store.state.user.userId)
+        .then(res=>{
+            this.$parent.myObject=res.data.data
+            console.log(res.data.data)
+        })
           })
       }
   }

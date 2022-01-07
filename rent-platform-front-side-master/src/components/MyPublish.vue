@@ -40,7 +40,10 @@ export default {
           type: "success",
           offset:100
         });
-        this.$router.push('/homepage/posts');
+        axios.getMyPost(this.$store.state.user.userId)
+      .then((res)=>{
+        this.$parent.MyPost=res.data.data
+      })
       })
     }
   }

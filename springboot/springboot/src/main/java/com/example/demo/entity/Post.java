@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.io.Serializable;
 import lombok.Data;
@@ -30,7 +32,7 @@ import lombok.EqualsAndHashCode;
 
     private String content;
 
-    private LocalTime time;
+    private LocalDateTime time;
 
     private Integer expectedPrice;
 

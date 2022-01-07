@@ -90,7 +90,7 @@ public class OrderController {
     @GetMapping("pay")
     public Result<?> pay(Integer order_id){
         int count = orderService.pay(order_id);
-        String payUrl="http://localhost:9090/alipay/pay?subject="+objectService.getById((orderService.getById(order_id).getObjectId())).getName()+"&traceNo="+order_id+"&totalAmount="+orderService.getById(order_id).getRentTotal();
+        String payUrl="http://101.35.194.132:9090/alipay/pay?subject="+objectService.getById((orderService.getById(order_id).getObjectId())).getName()+"&traceNo="+order_id+"&totalAmount="+orderService.getById(order_id).getRentTotal();
         if(count==-1)
             return Result.error("-1", "订单不存在");
         else if (count==-2)

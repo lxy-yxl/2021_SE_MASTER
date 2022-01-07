@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
         post.setUserId(user_id);
         post.setTitle(title);
         post.setContent(content);
+        post.setTime(LocalDateTime.now());
         post.setExpectedPrice(expected_price);
         postMapper.insert(post);
         return post.getPostId();
